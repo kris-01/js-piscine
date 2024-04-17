@@ -1,7 +1,7 @@
-// const hashCode = str =>
-//   (
-//     [...str].reduce((h, c) => (h = (h << 5) - h + c.charCodeAt(0)) & h, 0) >>> 0
-//   ).toString(36)
+ const hashCode = str =>
+   (
+    [...str].reduce((h, c) => (h = (h << 5) - h + c.charCodeAt(0)) & h, 0) >>> 0
+   ).toString(36)
 
 
 class Block {
@@ -18,14 +18,9 @@ const Genesis = { index: 0, hash: '0' }
 
 
 function blockChain(data, prev = this) {
-    try {
-        prev.index === undefined
-    } catch (e) {
-        prev = Genesis
-    }
-    // if (prev.index === undefined) {
-    //     prev = Genesis
-    // }
+     if (prev.index === undefined) {
+         prev = Genesis
+     }
     var newBlock = new Block;
     newBlock.index = prev.index + 1;
     newBlock.data = data;
